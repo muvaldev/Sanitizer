@@ -1,21 +1,27 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Waavi\Sanitizer\Laravel\Factory;
-use Waavi\Sanitizer\Sanitizer;
+use muvaldev\Sanitizer\Sanitizer;
+use muvaldev\Sanitizer\Laravel\Factory;
 
 class FactoryTest extends TestCase
 {
+    /**
+     * @param $data
+     * @param $rules
+     * @return mixed
+     */
     public function sanitize($data, $rules)
     {
         $sanitizer = new Sanitizer($data, $rules, [
-            'capitalize'  => \Waavi\Sanitizer\Filters\Capitalize::class,
-            'escape'      => \Waavi\Sanitizer\Filters\EscapeHTML::class,
-            'format_date' => \Waavi\Sanitizer\Filters\FormatDate::class,
-            'lowercase'   => \Waavi\Sanitizer\Filters\Lowercase::class,
-            'uppercase'   => \Waavi\Sanitizer\Filters\Uppercase::class,
-            'trim'        => \Waavi\Sanitizer\Filters\Trim::class,
+            'capitalize' => \muvaldev\Sanitizer\Filters\Capitalize::class,
+            'escape' => \muvaldev\Sanitizer\Filters\EscapeHTML::class,
+            'format_date' => \muvaldev\Sanitizer\Filters\FormatDate::class,
+            'lowercase' => \muvaldev\Sanitizer\Filters\Lowercase::class,
+            'uppercase' => \muvaldev\Sanitizer\Filters\Uppercase::class,
+            'trim' => \muvaldev\Sanitizer\Filters\Trim::class,
         ]);
+
         return $sanitizer->sanitize();
     }
 

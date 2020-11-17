@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Waavi\Sanitizer\Sanitizer;
+use muvaldev\Sanitizer\Sanitizer;
 
 class SanitizerTest extends TestCase
 {
@@ -13,6 +13,7 @@ class SanitizerTest extends TestCase
     public function sanitize($data, $rules)
     {
         $sanitizer = new Sanitizer($data, $rules);
+
         return $sanitizer->sanitize();
     }
 
@@ -55,23 +56,23 @@ class SanitizerTest extends TestCase
     public function test_wildcard_filters()
     {
         $data = [
-            'name'    => [
+            'name' => [
                 'first' => ' John ',
-                'last'  => ' Doe ',
+                'last' => ' Doe ',
             ],
             'address' => [
                 'street' => ' Some street ',
-                'city'   => ' New York ',
+                'city' => ' New York ',
             ],
         ];
         $rules = [
-            'name.*'       => 'trim',
+            'name.*' => 'trim',
             'address.city' => 'trim',
         ];
         $data = $this->sanitize($data, $rules);
 
         $sanitized = [
-            'name'    => ['first' => 'John', 'last' => 'Doe'],
+            'name' => ['first' => 'John', 'last' => 'Doe'],
             'address' => ['street' => ' Some street ', 'city' => 'New York'],
         ];
 
@@ -96,12 +97,12 @@ class SanitizerTest extends TestCase
     public function test_it_should_only_sanitize_passed_data()
     {
         $data = [
-            'title' => ' Hello WoRlD '
+            'title' => ' Hello WoRlD ',
         ];
 
         $rules = [
             'title' => 'trim',
-            'name' => 'trim|escape'
+            'name' => 'trim|escape',
         ];
 
         $data = $this->sanitize($data, $rules);
@@ -114,13 +115,13 @@ class SanitizerTest extends TestCase
     public function test_closure_rule()
     {
         $data = [
-            'name' => ' Sina '
+            'name' => ' Sina ',
         ];
 
         $rules = [
             'name' => ['trim', function ($value) {
                 return strtoupper($value);
-            }]
+            }],
         ];
 
         $data = $this->sanitize($data, $rules);

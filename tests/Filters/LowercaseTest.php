@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Waavi\Sanitizer\Sanitizer;
+use muvaldev\Sanitizer\Sanitizer;
 
 class LowercaseTest extends TestCase
 {
@@ -13,6 +13,7 @@ class LowercaseTest extends TestCase
     public function sanitize($data, $rules)
     {
         $sanitizer = new Sanitizer($data, $rules);
+
         return $sanitizer->sanitize();
     }
 

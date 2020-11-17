@@ -1,9 +1,9 @@
 <?php
 
-namespace Waavi\Sanitizer\Filters;
+namespace muvaldev\Sanitizer\Filters;
 
 use Illuminate\Support\Collection;
-use Waavi\Sanitizer\Contracts\Filter;
+use muvaldev\Sanitizer\Contracts\Filter;
 
 class Cast implements Filter
 {
@@ -35,6 +35,7 @@ class Cast implements Filter
                 return json_decode($value, true);
             case 'collection':
                 $array = is_array($value) ? $value : json_decode($value, true);
+
                 return new Collection($array);
             default:
                 throw new \InvalidArgumentException("Wrong Sanitizer casting format: {$type}.");

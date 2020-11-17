@@ -1,23 +1,23 @@
 {
-    "name": "waavi/sanitizer",
-    "description": "Data sanitizer and Laravel 7 form requests with input sanitation.",
+    "name": "muvaldev/sanitizer",
+    "description": "MuvalDev Laravel 8 Sanitizer",
     "keywords": ["laravel", "sanitation", "input sanitation", "input sanitizer", "input", "transform input", "input filter"],
     "license": "MIT",
     "authors": [{
-        "name": "William Wallace San Paulo",
-        "email": "info@waavi.com"
+        "name": "Mick Davies",
+        "email": "mick@muval.com.au"
     }],
     "require": {
-        "illuminate/support": "~5.3|~6.0|~7.0",
-        "illuminate/validation": "~5.3|~6.0|~7.0",
+        "illuminate/support": "~7.0|~8.0",
+        "illuminate/validation": "~7.0|~8.0",
         "nesbot/carbon": "~1.0|~2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~6.0|~7.0|~8.0"
+        "phpunit/phpunit": "~7.0|~8.0|~9.0"
     },
     "autoload": {
         "psr-4": {
-            "Waavi\\Sanitizer\\": "src/"
+            "muvaldev\\Sanitizer\\": "src/"
         }
     },
     "autoload-dev": {
@@ -26,10 +26,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Waavi\\Sanitizer\\Laravel\\SanitizerServiceProvider"
+                "muvaldev\\Sanitizer\\Laravel\\SanitizerServiceProvider"
             ],
             "aliases": {
-                "Sanitizer": "Waavi\\Sanitizer\\Laravel\\Facade"
+                "Sanitizer": "muvaldev\\Sanitizer\\Laravel\\Facade"
             }
         }
     },
